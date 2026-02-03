@@ -6,8 +6,8 @@ all: game game_set
 game_set: card.o main_set.o
 	${CXX} ${CXXFLAGS} card.o main_set.o -o game_set
 
-game: card_list.o main.o
-	${CXX} ${CXXFLAGS} card_list.o main.o -o game
+game: card.o card_list.o main.o
+	${CXX} ${CXXFLAGS} card.o card_list.o main.o -o game
 
 tests: card.o card_list.o tests.o
 	${CXX} ${CXXFLAGS} card.o card_list.o tests.o -o tests
