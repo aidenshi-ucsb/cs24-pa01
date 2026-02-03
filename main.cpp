@@ -15,21 +15,20 @@ void playGame(CardList& hand_a, CardList& hand_b) {
     for (auto it_a = hand_a.begin(); it_a != hand_a.end(); ++it_a) {
       if (hand_b.contains(*it_a)) {
 	cout << "Alice picked matching card " << *it_a << "\n";
-        Card to_erase = *it_a;
-        hand_a.remove(to_erase);
-        hand_b.remove(to_erase);
+	Card to_erase = *it_a;
+	hand_a.remove(to_erase);
+	hand_b.remove(to_erase);
 	found = true;
 	break;
       }
     }
-
-    for (auto it_b = hand_b.rbegin(); it_b != hand_b.rend(); ++it_b) {
+    for (auto it_b = hand_b.rbegin(); it_b != hand_b.rend(); --it_b) {
       if (hand_a.contains(*it_b)) {
 	cout << "Bob picked matching card " << *it_b << "\n";
-        Card to_erase = *it_b;
-        hand_a.remove(to_erase);
-        hand_b.remove(to_erase);
-        found = true;
+	Card to_erase = *it_b;
+	hand_a.remove(to_erase);
+	hand_b.remove(to_erase);
+	found = true;
 	break;
       }
     }
